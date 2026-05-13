@@ -78,4 +78,9 @@ public class CargoService {
                 .findByStatusAndCargoId(ShipmentStatus.IN_PROGRESS, cargoId);
         return !activeShipments.isEmpty();
     }
+
+    @Transactional(readOnly = true)
+    public int countCargosByType(CargoType type) {
+        return cargoRepository.countByType(type);
+    }
 }

@@ -13,4 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface CargoRepository extends JpaRepository<Cargo, Long> {
 
     List<Cargo> findByType(CargoType type);
+    
+    int countByType(CargoType type);
 }
