@@ -81,4 +81,14 @@ public class CargoController {
         cargoService.deleteCargo(id);
         return ResponseEntity.noContent().build();
     }
+
+    /**
+     * Get count of cargos by type.
+     */
+    @GetMapping("/count-by-type")
+    public ResponseEntity<Integer> countCargosByType(
+            @RequestParam CargoType type) {
+        int count = cargoService.countCargosByType(type);
+        return ResponseEntity.ok(count);
+    }
 }
